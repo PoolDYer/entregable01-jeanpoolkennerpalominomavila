@@ -1,1 +1,10 @@
 # Drivers arquitectónicos
+
+| ID | Driver arquitectónico | Origen | ¿Por qué influye en la arquitectura? |
+| :--- | :--- | :--- | :--- |
+| **DA01** | Segregación de roles (RBAC), autenticación centralizada y control de acceso multicanal web/móvil[cite: 8]. | AC05 - Seguridad / RC02 - RBAC[cite: 8] | Determina el despliegue de un API Gateway perimetral con WAF, middlewares de inspección de tokens JWT y filtros de autorización antes de llegar a la lógica de negocio[cite: 8]. |
+| **DA02** | Levantamiento ininterrumpido de actas en campo en zonas periféricas sin señal móvil[cite: 8]. | AC06 - Resiliencia / RC03 - Persistencia Móvil[cite: 8] | Exige una arquitectura Offline-First en la app móvil con SQLite local cifrado y mecanismos de conciliación transaccional diferida al detectar red[cite: 8]. |
+| **DA03** | Picos de tráfico masivo durante festividades turísticas de Huamanga (hasta 30,000 usuarios)[cite: 8]. | AC02 - Disponibilidad / AC03 - Escalabilidad[cite: 8] | Condiciona el empleo de balanceadores de carga L7, clúster de servidores sin estado (stateless) y réplicas de lectura de base de datos para absorción de demanda[cite: 8]. |
+| **DA04** | Latencias menores a 200 ms en la consulta ciudadana y lectura de sellos QR oficiales[cite: 8]. | AC01 - Rendimiento[cite: 8] | Conduce al uso obligatorio de una capa de memoria ultrarrápida Redis Cache y distribución perimetral CDN para evitar consultas directas al motor transaccional[cite: 8]. |
+| **DA05** | Valor legal, probatorio e inalterable de actas, firmas manuscritas y fotos forenses[cite: 8]. | AC04 - Durabilidad / AC07 - Inmutabilidad[cite: 8] | Obliga a desacoplar la persistencia de archivos en almacenamiento S3, usar colas asíncronas para sellado criptográfico y bitácoras append-only para auditoría[cite: 8]. |
+| **DA06** | Interoperabilidad obligatoria con entidades gubernamentales (SUNAT, MINCETUR, GIS)[cite: 8]. | RC06 - Integraciones[cite: 8] | Impone el diseño de adaptadores y clientes de integración desacoplados en el backend para aislar la disponibilidad interna ante caídas de servicios externos[cite: 8]. |
